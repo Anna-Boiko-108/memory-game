@@ -70,11 +70,11 @@ header {
 	left: 0;
 }
 
-.front {
+.back {
 	z-index: 2;
 }
 
-.back {
+.front {
 	z-index: 1;
 	transform: rotateX(180deg);
 }
