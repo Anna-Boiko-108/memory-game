@@ -38,8 +38,8 @@ CardDeck.prototype.drawDeck = function (){
 
 class Card {
 	constructor(frontImagePath){
-		this. frontImagePath = frontImagePath;
-		this. backImagePath = "images/back.jpg";
+		this.frontImagePath = frontImagePath;
+		this.backImagePath = "images/back.jpg";
 	};
 };
 
@@ -54,9 +54,13 @@ Card.prototype.drawCard = function(){
 	div.appendChild(frontImage);
 	div.appendChild(backImage);
 
-	div.className = "card";
+	div.addEventListener("click", function(){
+		div.classList.toggle("flipped");
+	});
+
+	div.classList.add("card");
 	frontImage.src = this.frontImagePath;
-	frontImage.className = "front";
+	frontImage.classList.add("front");
 	backImage.src = this.backImagePath;
-	backImage.className = "back";
+	backImage.classList.add("back");
 };

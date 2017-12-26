@@ -44,13 +44,16 @@ header {
 
 /*Card flipping*/
 
-.content {
+.flip-container {
 	perspective: 800px;
 }
 
-.card:hover {
-	transform: rotateX(180deg);
+.flipped {
+  transform: rotateX( 180deg );
 }
+/*.card:hover {
+	transform: rotateX(180deg);
+}*/
 
 .card {
 	transition: 1s;
@@ -78,6 +81,7 @@ header {
 	z-index: 1;
 	transform: rotateX(180deg);
 }
+
 
 /*Responsiveness*/
 
