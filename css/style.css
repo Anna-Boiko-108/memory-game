@@ -59,6 +59,10 @@ header {
 	position: relative;
 }
 
+/*.card .hiden {
+	transition-delay: 1s;
+}*/
+
 .card, .front, .back {
 	width: 200px;
 	height: 150px;

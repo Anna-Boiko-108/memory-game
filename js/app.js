@@ -34,7 +34,7 @@ window.onload = function () {
 				}
 				// Flip back if not identical
 				if (flipped.length == 3) {
-					flipOrHide("flipped");
+					flip();
 				}
 
 				if (pairsCounter == cardsNumber / 2) {
@@ -54,16 +54,24 @@ window.onload = function () {
 
 	function checkIdentity(){
 		if (flipped[0].src == flipped[1].src) {
-			setTimeout(function (){ flipOrHide("hiden");}, 800);
+			hide();
 			pairsCounter += 1;
 		}
 	}
 
-	// Toggles classname (hiden or flipped) of 2 clicked cards and deletes them from flipped array
-	function flipOrHide(className){
-		flipped[0].parentElement.classList.toggle(className);
-		flipped[1].parentElement.classList.toggle(className);
-		flipped.splice(0, 2);
+	function flip(){
+		let flipped1 = flipped.shift();
+		let flipped2 = flipped.shift();
+		flipped1.parentElement.classList.toggle("flipped");
+		flipped2.parentElement.classList.toggle("flipped");
+	}
+
+	function hide(){
+		let hiden1 = flipped.shift();
+		let hiden2 = flipped.shift();
+		setTimeout(function(){ 
+			hiden1.parentElement.classList.toggle("hiden");
+			hiden2.parentElement.classList.toggle("hiden");}, 800);
 	}
 
 	function youWon(){
