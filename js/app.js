@@ -21,7 +21,7 @@ window.onload = function () {
 	let pairsCounter = 0;
 	let flipped = [];
 
-	document.addEventListener("click", function(){
+	document.addEventListener("click", function(event){
 		// Click only on cards not on other elements
 		if (event.target.className == "back") {
 			// Dont't click on cards which are already hiden
