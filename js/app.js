@@ -23,21 +23,21 @@ window.onload = function () {
 
 	document.addEventListener("click", function(event){
 		// Click only on cards not on other elements
-		if (event.target.className == "back") {
+		if (event.target.className === "back") {
 			// Dont't click on cards which are already hiden
-			if (event.target.parentElement.className != "card flipped hiden") {
+			if (event.target.parentElement.className !== "card flipped hiden") {
 				flipCard(event.target);
 				saveClickedCards(event.target);
 				
-				if (flipped.length == 2) {
+				if (flipped.length === 2) {
 					checkIdentity();
 				}
 				// Flip back if not identical
-				if (flipped.length == 3) {
+				if (flipped.length === 3) {
 					flip();
 				}
 
-				if (pairsCounter == cardsNumber / 2) {
+				if (pairsCounter === cardsNumber / 2) {
 					youWon();
 				}
 			} 
@@ -53,7 +53,7 @@ window.onload = function () {
 	}
 
 	function checkIdentity(){
-		if (flipped[0].src == flipped[1].src) {
+		if (flipped[0].src === flipped[1].src) {
 			hide();
 			pairsCounter += 1;
 		}
@@ -88,7 +88,7 @@ class CardDeck {
 		return d;
 	}
 	drawDeck(){
-		this.cardDeck.forEach(function(item, index, cardDeck){
+		this.cardDeck.forEach(function(item){
 			let card = new Card(item);
 			card.drawCard();
 		})
@@ -100,20 +100,22 @@ class Card {
 		this.frontImagePath = frontImagePath;
 		this.backImagePath = "images/back.jpg";
 	}
-	drawCard(){
-		let section = document.getElementById('cardDeck');
-		let div = document.createElement("div");
+	drawCard(){		
 		let frontImage = document.createElement("img");
-		let backImage = document.createElement("img");
+		frontImage.src = this.frontImagePath;
+		frontImage.classList.add("front");
 
-		section.appendChild(div);
+		let backImage = document.createElement("img");
+		backImage.src = this.backImagePath;
+		backImage.classList.add("back");
+
+		let div = document.createElement("div");
+		div.classList.add("card");
+
 		div.appendChild(frontImage);
 		div.appendChild(backImage);
 
-		div.classList.add("card");
-		frontImage.src = this.frontImagePath;
-		frontImage.classList.add("front");
-		backImage.src = this.backImagePath;
-		backImage.classList.add("back");
+		let section = document.getElementById('cardDeck');
+		section.appendChild(div);
 	}
 }
