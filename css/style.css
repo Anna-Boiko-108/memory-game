@@ -17,35 +17,29 @@ img {
 	box-shadow: 3px 3px 3px grey;
 }
 
-/*Grid*/
+/*Flexbox*/
 
-.container{
-	display: grid;
-	grid-template-columns: 1fr 550px 1fr;
-	grid-template-rows: 100px 4fr;
-	grid-gap: 6px;
-	grid-template-areas: 
-		"h h h"
-		". c ."
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .content {
-	grid-area: c;
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
-	grid-template-rows: 4fr;
-	grid-gap: 6px;
-	justify-content: center;
+	width: 555px;
+	margin-top: 15px;
+	display: flex;
+	flex-flow: row wrap;
 }
 
-header {
-	grid-area: h;
+.card {
+	margin: 5px;
 }
 
 /*Card flipping*/
 
 .flip-container {
-	perspective: 800px;
+	perspective: 1000px;
 }
 
 .flipped {
@@ -96,33 +90,22 @@ header {
 
 /*Responsiveness*/
 @media screen and (min-width: 491px) and (max-width: 670px) {
-	.title {
-		font-size: 2em;
-	}
 	img, .card, .front, .back {
 		width: 150px;
 		height: 112.5px;
 	}
-	.container{
-		grid-template-columns: 1fr 470px 1fr;
-	}
 	.content {
-		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));	
+		width: 491px;
 	}
+	
 }
 
 @media screen and (min-width: 1px) and (max-width: 490px) {
-	.title {
-		font-size: 2em;
-	}
 	img, .card, .front, .back {
 		width: 115px;
 		height: 86.25px;
 	}
-	.container{
-		grid-template-columns: 1fr 360px 1fr;
-	}
 	.content {
-		grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));	
+		width: 380px;
 	}
 }
