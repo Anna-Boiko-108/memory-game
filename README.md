@@ -1,4 +1,6 @@
-## **Memory pair game**
+## **[Memory pair game](https://boyko-anna.github.io/memory-game/)**
+
+
 
 How to play:
 1. Flip cards one by one.
